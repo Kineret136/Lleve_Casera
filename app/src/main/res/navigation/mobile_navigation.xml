@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/productosFragment">
+
+    <fragment
+        android:id="@+id/mercadoFragment"
+        android:name="com.anys.lleve_casera_dv.MercadoFragment"
+        android:label="@string/menu_mercado"
+        tools:layout="@layout/fragment_mercado" />
+    <fragment
+        android:id="@+id/productosFragment"
+        android:name="com.anys.lleve_casera_dv.ProductosFragment"
+        android:label="@string/menu_producto"
+        tools:layout="@layout/fragment_productos" >
+        <action
+            android:id="@+id/action_productosFragment_to_productoMercadoFragment"
+            app:destination="@id/productoMercadoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/perfilFragment"
+        android:name="com.anys.lleve_casera_dv.PerfilFragment"
+        android:label="@string/menu_perfil"
+        tools:layout="@layout/fragment_perfil" />
+    <fragment
+        android:id="@+id/agenciaFragment"
+        android:name="com.anys.lleve_casera_dv.AgenciaFragment"
+        android:label="@string/menu_agencias"
+        tools:layout="@layout/fragment_agencia" >
+        <action
+            android:id="@+id/action_agenciaFragment_to_productosFragment"
+            app:destination="@id/productosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/carritoFragment"
+        android:name="com.anys.lleve_casera_dv.CarritoFragment"
+        android:label="@string/menu_carrito"
+        tools:layout="@layout/fragment_carrito" />
+    <fragment
+        android:id="@+id/productoMercadoFragment"
+        android:name="com.anys.lleve_casera_dv.ProductoMercadoFragment"
+        android:label="@string/titulo_fproductoMercado"
+        tools:layout="@layout/fragment_producto_mercado" >
+        <action
+            android:id="@+id/action_productoMercadoFragment_to_lista_elementos_mercadoFragment2"
+            app:destination="@id/elementos_mercadoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/elementos_mercadoFragment"
+        android:name="com.anys.lleve_casera_dv.ElementosMercadoFragment"
+        android:label="@string/titulo_felementosMercado"
+        tools:layout="@layout/fragment_elementos_mercado" />
+    <fragment
+        android:id="@+id/confirmar_compraFragment"
+        android:name="com.anys.lleve_casera_dv.Confirmar_CompraFragment"
+        android:label="Confirmar Compra"
+        tools:layout="@layout/fragment_confirmar_compra" />
+
+
+</navigation>

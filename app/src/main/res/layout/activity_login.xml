@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/wallpaper_degradado"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/fondo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="55dp"
+            android:layout_marginBottom="25dp"
+            android:layout_gravity="center"
+            android:background="@drawable/circle_image"
+            android:padding="20dp"
+            android:src="@drawable/logo"
+            android:contentDescription="@string/logo" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="casual"
+            android:textStyle="bold"
+            android:textColor="#FFFFFC"
+            android:textSize="18sp"
+            android:text="@string/login" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_celular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:textColorHint="@color/white"
+            app:errorEnabled="true"
+            app:counterMaxLength="9"
+            app:counterEnabled="true"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_cel_i"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:hint="@string/data_celular"
+                android:inputType="phone"
+                android:autofillHints="@string/data_celular"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_contra"
+            android:layout_width="353dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="10dp"
+            android:textColorHint="@color/white"
+            app:errorEnabled="true"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/black">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_psw_i"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:autofillHints="@string/data_contrasena"
+                android:hint="@string/data_contrasena"
+                android:inputType="textPassword"
+                 />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <RadioButton
+            android:id="@+id/RBSesion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+            android:buttonTint="@color/white"
+            android:hint="@string/no_cerrar_sesion"
+            android:textColorHint="#FFFFFC"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/btn_login_start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="70dp"
+            android:layout_marginLeft="70dp"
+            android:background="@drawable/regtangle_imge"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="@color/text_color_1"
+            android:layout_marginBottom="15dp"
+            android:text="@string/iniciar_sesion" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:textColor="#FFFFFC"
+                android:textSize="16sp"
+                android:text="@string/create_cuenta" />
+
+            <Button
+                android:id="@+id/btn_redi_registro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:background="@android:color/transparent"
+                android:textColor="#FFFFFC"
+                android:text="@string/crear_cuenta" />
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

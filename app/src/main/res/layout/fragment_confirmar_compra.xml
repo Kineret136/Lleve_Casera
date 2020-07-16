@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Confirmar_CompraFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            >
+
+            <TextView
+                android:id="@+id/nombreProducto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre de producto"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textAlignment="center"/>
+            <TextView
+                android:id="@+id/precioProducto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Precio del producto"
+                android:textSize="18sp"/>
+            <TextView
+                android:id="@+id/nombreMercado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre del mercado"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/nombreDistrito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre del distrito"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:columnCount="1"
+        android:layout_marginTop="30dp">
+
+        <Button
+            android:id="@+id/btn_recojoPresencial"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:text="Recojo Presencial"
+            android:layout_gravity="center"
+            android:background="@drawable/solid_image"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="@color/white"
+            android:layout_marginBottom="30dp"
+            />
+
+        <Button
+            android:id="@+id/btn_envioDomicilio"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:text="Enviar a domicilio"
+            android:layout_gravity="center"
+            android:background="@drawable/solid_image"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="@color/white"
+            android:layout_marginBottom="30dp"/>
+
+        <Button
+            android:id="@+id/btn_agenciaEnvio"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:text="Agencia de envio"
+            android:layout_gravity="center"
+            android:background="@drawable/solid_image"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="@color/white"
+            android:layout_marginBottom="30dp"
+            />
+
+    </GridLayout>
+
+
+</FrameLayout>

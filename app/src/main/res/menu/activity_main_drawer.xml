@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/perfilFragment"
+            android:icon="@drawable/ic_editar"
+            android:title="@string/menu_perfil" />
+        <item
+            android:id="@+id/productosFragment"
+            android:icon="@drawable/ic_producto"
+            android:title="@string/menu_producto" />
+        <item
+            android:id="@+id/mercadoFragment"
+            android:icon="@drawable/ic_mercado"
+            android:title="@string/menu_mercado" />
+        <item
+            android:id="@+id/carritoFragment"
+            android:icon="@drawable/ic_carrito"
+            android:title="@string/menu_carrito" />
+        <item
+            android:id="@+id/agenciaFragment"
+            android:icon="@drawable/ic_agencia"
+            android:title="@string/menu_agencias" />
+
+        <item
+            android:id="@+id/configuration_section"
+            android:title="@string/menu_settings">
+            <menu>
+                <item
+                    android:id="@+id/fragmentLogOut"
+                    android:icon="@android:drawable/ic_lock_power_off"
+                    android:title="@string/menu_logout" />
+            </menu>
+        </item>
+
+
+
+
+    </group>
+</menu>

@@ -1,0 +1,79 @@
+<resources>
+    <!--String Login   -->
+    <string name="app_name">Lleve Casera</string>
+    <string name="intro_text">Accede para descubrir las mejores ofertas de tus mercados favoritos y llévese su yapita"</string>
+    <string name="sing_in">Regístrese en Lleve Casera</string>
+    <string name="login">Ingrese a Lleve Casera</string>
+    <string name="create_cuenta">¿Aún no tienes cuenta? </string>
+
+    <string name="title_activity_principal">PrincipalActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">!Bienvenid@ ¡</string>
+    <string name="nav_header_subtitle">mi.usuario.aqui@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <!--String Nav_Menú  -->
+    <string name="menu_perfil">Mi cuenta</string>
+    <string name="menu_producto">Productos</string>
+    <string name="menu_mercado">Mercados</string>
+    <string name="menu_carrito">Carrito de Compra</string>
+    <string name="menu_agencias">Agencias</string>
+    <string name="menu_settings">Configuración</string>
+    <string name="menu_logout">Cerrar Sesión</string>
+
+    <!--String Nav Menu Navegacion entre Fragmentos-->
+    <string name="titulo_fproductoMercado">Lista Producto Seleccionado</string>
+    <string name="titulo_felementosMercado">Lista de Productos de Mercado</string>
+
+    <string name="action_setting">Settings</string>
+
+    <!--String Imagenes  -->
+    <string name="fondo">fondo</string>
+    <string name="logo">logo</string>
+
+    <!--String Registro  -->
+    <string name="iniciar_sesion">Iniciar Sesión</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="data_celular">Celular</string>
+    <string name="data_contrasena">Contraseña</string>
+    <string name="crear_cuenta">Crear cuenta</string>
+    <string name="data_nombre">Nombre</string>
+    <string name="data_apellido">Apellido</string>
+    <string name="data_correo">Correo</string>
+    <string name="back">Regresar</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_test_navegacion">TestNavegacion</string>
+    <string name="action_settings">Settings</string>
+
+    <!--Titulos para los Fragments-->
+    <string name="titulo_fproductos">Lista de Productos</string>
+    <string name="titulo_fmercados">Lista de Mercados</string>
+    <string name="titulo_fagencias">Lista de Agencias</string>
+    <string name="titulo_fcarrito">Lista de Compras</string>
+
+    <!--String Perfil Editar datos usuario-->
+    <string name="act_info">Actualice su información</string>
+    <string name="act_boton">Actualizar</string>
+
+    <!--Nombres Agencias-->
+    <string name="uber">UberEats</string>
+    <string name="nrouber">Contacto: 987654321</string>
+    <string name="glovo">Glovo</string>
+    <string name="nroglovo">Contacto: 998877665</string>
+    <string name="rappi">Rappi</string>
+    <string name="nrorappi">Contacto: 995544332</string>
+    <string name="domicilios">Domicilios.com</string>
+    <string name="nrodomicilios">Contacto: 993322110</string>
+    <string name="bienvenido">!Bienvenido!</string>
+    <string name="login_error">Verifique sus datos. O cree una cuenta.</string>
+    <string name="no_cerrar_sesion">No cerrar sesión</string>
+    <string name="cerrar_sesion">Cerrar Sesión</string>
+    <string name="search">Search</string>
+    <string name="imgmercado">imgMercado</string>
+    <string name="nombre_de_mercado">Nombre de Mercado</string>
+
+
+</resources>

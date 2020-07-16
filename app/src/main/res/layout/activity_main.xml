@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/wallpaper_degradado"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/fondo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="190dp"
+            android:layout_height="184dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/circle_image"
+            android:padding="30dp"
+            android:src="@drawable/logo"
+            android:contentDescription="@string/logo" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="50dp"
+            android:fontFamily="casual"
+            android:textStyle="bold"
+            android:textColor="#FFFFFC"
+            android:textSize="18sp"
+            android:text="@string/intro_text" />
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:background="@drawable/regtangle_imge"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="@color/text_color_1"
+            android:layout_marginBottom="30dp"
+            android:text="@string/iniciar_sesion" />
+
+        <Button
+            android:id="@+id/btn_sign_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:background="@drawable/regtangle_imge"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="@color/text_color_1"
+            android:layout_marginBottom="30dp"
+            android:text="@string/registrarse" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CarritoFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|top"
+            android:text="Pedidos "
+            android:textSize="20dp"
+            android:padding="12dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerCarrito"
+            android:layout_width="match_parent"
+            android:layout_height="480dp" />
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="2"
+            android:rowCount="2">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_margin="10dp"
+                android:gravity="left"
+                android:padding="5dp"
+                android:text="Total:  "
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/totalPedido"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="S/. "
+                android:textSize="15dp" />
+
+            <Button
+                android:id="@+id/btn_comprar"
+                android:layout_width="150dp"
+                android:layout_margin="10dp"
+                android:text="Comprar"
+                android:textStyle="bold"
+
+                android:textColor="@color/white"
+                android:background="@drawable/solid_image"
+                >
+
+            </Button>
+
+            <Button
+                android:layout_width="150dp"
+                android:layout_margin="10dp"
+                android:text="Cancelar"
+                android:textColor="@color/colorPrimary"
+                android:backgroundTint="#0D7D0F0F"
+                android:id="@+id/btn_cancelar"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/border_image"/>
+
+
+        </GridLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

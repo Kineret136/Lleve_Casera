@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PerfilFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/circle_image"
+            android:contentDescription="@string/logo"
+            android:padding="20dp"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:text="@string/act_info"
+            android:textColor="#5E3A29"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/txt_nom_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:autofillHints="@string/data_nombre"
+            android:hint="@string/data_nombre"
+            android:inputType="textPersonName"
+            android:textColor="#5E3A29"
+            android:textColorHint="#5E3A29" />
+
+        <EditText
+            android:id="@+id/txt_ape_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:autofillHints="@string/data_apellido"
+            android:hint="@string/data_apellido"
+            android:inputType="textPersonName"
+            android:textColor="#5E3A29"
+            android:textColorHint="#5E3A29" />
+
+        <EditText
+            android:id="@+id/txt_cel_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:autofillHints="@string/data_celular"
+            android:hint="@string/data_celular"
+            android:inputType="phone"
+            android:textColor="#5E3A29"
+            android:textColorHint="#5E3A29" />
+
+        <EditText
+            android:id="@+id/txt_email_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:autofillHints="@string/data_correo"
+            android:hint="@string/data_correo"
+            android:inputType="textEmailAddress"
+            android:textColor="#5E3A29"
+            android:textColorHint="#5E3A29" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#5E3A29"
+            android:textColorHint="#5E3A29"
+            app:errorEnabled="true"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/black">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_psw_a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:autofillHints="@string/data_contrasena"
+                android:hint="@string/data_contrasena"
+                android:inputType="textPassword"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/btn_actualizar_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="70dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/solid_image"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="@string/act_boton"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btn_back_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="70dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/border_image"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="@string/back"
+            android:textColor="@color/colorPrimary" />
+    </LinearLayout>
+
+</FrameLayout>

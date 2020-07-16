@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SingInActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/wallpaper_degradado"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/fondo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/circle_image"
+            android:padding="20dp"
+            android:src="@drawable/logo"
+            android:contentDescription="@string/logo" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="casual"
+            android:textStyle="bold"
+            android:textColor="#FFFFFC"
+            android:textSize="18sp"
+            android:text="@string/sing_in" />
+
+        <EditText
+            android:id="@+id/txt_nom_r"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:hint="@string/data_nombre"
+            android:autofillHints="@string/data_nombre"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/txt_ape_r"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:hint="@string/data_apellido"
+            android:autofillHints="@string/data_apellido"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/txt_cel_r"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:hint="@string/data_celular"
+            android:autofillHints="@string/data_celular"
+            android:inputType="phone" />
+
+        <EditText
+            android:id="@+id/txt_psw_r"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:hint="@string/data_contrasena"
+            android:autofillHints="@string/data_contrasena"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/txt_email_r"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:hint="@string/data_correo"
+            android:autofillHints="@string/data_correo"
+            android:inputType="textEmailAddress" />
+
+        <Button
+            android:id="@+id/btn_registro_r"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="70dp"
+            android:layout_marginLeft="70dp"
+            android:background="@drawable/regtangle_imge"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="@color/text_color_1"
+            android:layout_marginBottom="15dp"
+            android:text="@string/registrarse" />
+
+        <Button
+            android:id="@+id/btn_back_r"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="70dp"
+            android:layout_marginLeft="70dp"
+            android:background="@drawable/regtangle_imge"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="@color/text_color_1"
+            android:layout_marginBottom="30dp"
+            android:text="@string/back" />
+    </LinearLayout>
+</RelativeLayout>

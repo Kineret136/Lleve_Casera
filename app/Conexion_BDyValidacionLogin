@@ -1,0 +1,37 @@
+public void validar_login(String cel, String psw) {
+        //int resultado = 0;
+        Connection conexion = null;
+        try {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+            try {
+                Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            conexion= DriverManager.getConnection("jdbc:jtds:sqlserver://192.168.1.100:1433;databaseName=DBLLeveCasera;user=sa;password=1234;");
+            String SSQL = "Select * From Usuario Where celularUsuario='"+cel+"' AND contraseñaUsuario='"+psw+"';";
+            Statement st = conexion.createStatement();
+            ResultSet rs = st.executeQuery(SSQL);
+            if (rs.next()) {
+                Toast.makeText(getApplicationContext(), "Bienvenido!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(LoginActivity.this, PrincipalActivity.class));
+               // resultado = 1;
+            }else{
+                Toast.makeText(getApplicationContext(), "Numero o contraseña incorrectos, verifique sus datos. O cree una cuenta.", Toast.LENGTH_SHORT).show();
+            }
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        } finally {
+            try {
+                conexion.close();
+           } catch (SQLException ex) {
+              Toast.makeText(getApplicationContext(), "Error de conexión", Toast.LENGTH_SHORT).show();
+           }
+        }
+    }
