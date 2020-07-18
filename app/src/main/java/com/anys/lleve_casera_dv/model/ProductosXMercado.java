@@ -8,7 +8,7 @@ public class ProductosXMercado {
     @SerializedName("producto")
     private String producto;
     @SerializedName("precio")
-    private String precio;
+    private double precio;
 
     public int getId() {
         return id;
@@ -26,11 +26,11 @@ public class ProductosXMercado {
         this.producto = producto;
     }
 
-    public String getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(String precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 }

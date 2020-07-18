@@ -10,20 +10,32 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.anys.lleve_casera_dv.model.Compra;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 
 public class CantProductoFragment2 extends DialogFragment {
 
     public static final String Nombre= "Cant";
-    private String nombre;
+    private String nombreProducto;
+    private int idProducto;
+    private double preProducto;
+    public static ArrayList<Compra> compras = new ArrayList<>();
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
 
-        nombre = getArguments().getString(Nombre, "Algo salió mal");
+        nombreProducto = getArguments().getString(Nombre, "Algo salió mal");
+        idProducto=getArguments().getInt("idProducto");
+        preProducto= getArguments().getDouble("precioProducto");
+
     }
 
     @NonNull
@@ -33,6 +45,7 @@ public class CantProductoFragment2 extends DialogFragment {
         View view = getActivity().getLayoutInflater().inflate(R.layout.fragment_cant_producto2,null);
         final EditText cant= view.findViewById(R.id.cantidadProducto);
         final String[] cantidad = new String[1];
+        final int[] cantida = new int[1];
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setView(view)
@@ -41,7 +54,17 @@ public class CantProductoFragment2 extends DialogFragment {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         cantidad[0] =cant.getText().toString();
-                        Toast.makeText(getActivity(), "Se agregó "+ cantidad[0] + " unidades de " +nombre, Toast.LENGTH_SHORT).show();
+                        cantida[0] =Integer.parseInt(cant.getText().toString());
+
+                        compras.add(new Compra(idProducto,nombreProducto,cantida[0],preProducto));
+
+
+                        Iterator<Compra> nombreIterator = compras.iterator();
+                        while(nombreIterator.hasNext()){
+                            Compra elemento = nombreIterator.next();
+                            Log.d("PedidoAgregado", elemento.toString()+" / " );
+                        }
+                        Toast.makeText(getActivity(), "Se agregó "+ cantidad[0] + " unidades de " +nombreProducto, Toast.LENGTH_SHORT).show();
                     }
                 })
                 . setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {

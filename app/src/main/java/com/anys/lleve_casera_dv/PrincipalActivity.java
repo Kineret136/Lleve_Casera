@@ -48,7 +48,7 @@ public class PrincipalActivity extends AppCompatActivity {
          Aquí colocamos los id de los fragment a los que queremos que muestre el nav del menú
          */
         mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.perfilFragment,R.id.productosFragment,
-                R.id.mercadoFragment,R.id.agenciaFragment,R.id.carritoFragment,R.id.productoMercadoFragment,
+                R.id.mercadoFragment,R.id.agenciaFragment,R.id.carritoFragment,R.id.agenciaSelectFragment,
                 R.id.elementos_mercadoFragment,R.id.confirmar_compraFragment)
                 .setDrawerLayout(drawer)
                 .build();

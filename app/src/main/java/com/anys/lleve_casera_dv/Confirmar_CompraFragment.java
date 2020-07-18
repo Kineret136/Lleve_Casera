@@ -3,6 +3,8 @@ package com.anys.lleve_casera_dv;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,8 +30,7 @@ public class Confirmar_CompraFragment extends Fragment {
         View vista = inflater.inflate(R.layout.fragment_confirmar_compra, container, false);
 
         bt_recojo = vista.findViewById(R.id.btn_recojoPresencial);
-        bt_agencia = vista.findViewById(R.id.btn_agenciaEnvio);
-        bt_envio = vista.findViewById(R.id.btn_agenciaEnvio);
+        bt_agencia = vista.findViewById(R.id.btn_envioDomicilio);
 
         bt_recojo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,17 +41,10 @@ public class Confirmar_CompraFragment extends Fragment {
         bt_agencia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(),"Se está procesando su solicitud",Toast.LENGTH_LONG).show();
+                Navigation.findNavController(v).navigate(R.id.agenciaSelectFragment);
+                //Toast.makeText(getContext(),"Se está procesando su solicitud",Toast.LENGTH_LONG).show();
             }
         });
-        bt_envio.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(),"Se está procesando su solicitud",Toast.LENGTH_LONG).show();
-            }
-        });
-
-
 
 
         return vista;

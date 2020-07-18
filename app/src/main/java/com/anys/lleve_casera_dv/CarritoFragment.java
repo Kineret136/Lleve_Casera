@@ -7,6 +7,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,25 +15,30 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.anys.lleve_casera_dv.Adaptadores.AdaptadorCarrito;
-import com.anys.lleve_casera_dv.Adaptadores.AdaptadorMercados;
-import com.anys.lleve_casera_dv.Bean.Carrito;
+import com.anys.lleve_casera_dv.model.Compra;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+
+import static com.anys.lleve_casera_dv.Adaptadores.AdaptadorCarrito.sumaTotal;
+import static com.anys.lleve_casera_dv.CantProductoFragment2.compras;
 
 public class CarritoFragment extends Fragment {
 
     AdaptadorCarrito adaptadorCarrito;
     RecyclerView recyclerViewCarrito;
-    ArrayList<Carrito> listPedidos;
-
+    ArrayList<Compra> listPedidos;
+    TextView textCarrito, totalPedido;
     Button bt_confirmar , btn_cancelar;
+
+
+    DecimalFormat df = new DecimalFormat("#.##");
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         TextView toolbar = getActivity().findViewById(R.id.toolbar_title);
         toolbar.setText("Carrito de Compra");
-
     }
 
     @Override
@@ -41,40 +47,47 @@ public class CarritoFragment extends Fragment {
         // Inflate the layout for this fragment
         View vista = inflater.inflate(R.layout.fragment_carrito, container, false);
         recyclerViewCarrito = vista.findViewById(R.id.recyclerCarrito);
-        listPedidos = new ArrayList<>();
-
+        //listPedidos = new ArrayList<>();
+        textCarrito= vista.findViewById(R.id.textCarrito);
+        totalPedido = vista.findViewById(R.id.totalPedido);
         bt_confirmar = vista.findViewById(R.id.btn_comprar);
 
-        bt_confirmar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(v).navigate(R.id.confirmar_compraFragment);
-            }
-        });
-
-
-
-
-        datosListaProd();
-        mostrarListaProd();
-
-
+       if (compras.isEmpty()){
+            textCarrito.setText("¡Aun no ha agregado ningun producto al carrito!");
+        }else {
+            textCarrito.setText("Lista de productos");
+            mostrarListaProd();
+            totalPedido.setText(df.format(sumaTotal)+"");
+            bt_confirmar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Navigation.findNavController(v).navigate(R.id.agenciaSelectFragment);
+                }
+            });
+        }
         return vista;
-    }
-
-    private void datosListaProd() {
-        listPedidos.add(new Carrito(1,"Arroz Hoja",1.20,3,R.drawable.arroz_hoja));
-        listPedidos.add(new Carrito(2,"Chorizo Otto Kun",4.20,2,R.drawable.chorizo_ottok));
-        listPedidos.add(new Carrito(3,"Azúcar Rubia",1.70,4,R.drawable.azucar_rubia));
-        listPedidos.add(new Carrito(4,"Arroz Hoja",2.30,2,R.drawable.arroz_hoja));
     }
 
     private void mostrarListaProd() {
         recyclerViewCarrito.setLayoutManager(new LinearLayoutManager(getContext()));
-        adaptadorCarrito = new AdaptadorCarrito(getContext(),listPedidos);
+        adaptadorCarrito = new AdaptadorCarrito(getContext(),compras);
         recyclerViewCarrito.setAdapter(adaptadorCarrito);
-
+        Log.d("TotalSumaTotal", sumaTotal+"");
+        //totalPedido.setText(df.format(traerPrecio())+"");
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        TextView toolbar = getActivity().findViewById(R.id.toolbar_title);
+        toolbar.setText("Carrito de Compra");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        TextView toolbar = getActivity().findViewById(R.id.toolbar_title);
+        toolbar.setText("Carrito de Compra");
+    }
 
 }

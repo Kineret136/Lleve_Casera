@@ -36,6 +36,9 @@ public class ElementosMercadoFragment extends Fragment{
     ArrayList<ProductosXMercado> listElemMerc;
     DialogFragment cantidadProducto = new CantProductoFragment2();
     String nomProduct="";
+    int idProducto;
+    double precioProducto;
+
 
 
     @Override
@@ -81,10 +84,16 @@ public class ElementosMercadoFragment extends Fragment{
                 * Navigation.findNavController(v).navigate(R.id.ID_DE_LA_VISTA_PARA_AÑADIR_PRODUCTOS_AL_CARRITO);
                 * */
                 nomProduct = listElemMerc.get(recyclerViewElemMerc.getChildAdapterPosition(v)).getProducto();
+                idProducto = listElemMerc.get(recyclerViewElemMerc.getChildAdapterPosition(v)).getId();
+                precioProducto = listElemMerc.get(recyclerViewElemMerc.getChildAdapterPosition(v)).getPrecio();
+
 
                 cantidadProducto.show(getFragmentManager(), "cantidadProducto");
                 Bundle bundle = new Bundle();
                 bundle.putString(CantProductoFragment2.Nombre, ""+ nomProduct);
+
+                bundle.putInt("idProducto", idProducto);
+                bundle.putDouble("precioProducto",precioProducto);
                 cantidadProducto.setArguments(bundle);
 
             }
@@ -138,7 +147,7 @@ public class ElementosMercadoFragment extends Fragment{
     public void onPause() {
         super.onPause();
         TextView toolbar = getActivity().findViewById(R.id.toolbar_title);
-        toolbar.setText("Mercados");
+        toolbar.setText("Productos");
     }
 
     @Override
