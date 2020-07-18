@@ -19,6 +19,7 @@ import com.anys.lleve_casera_dv.model.Compra;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import static com.anys.lleve_casera_dv.Adaptadores.AdaptadorCarrito.sumaTotal;
 import static com.anys.lleve_casera_dv.CantProductoFragment2.compras;
@@ -30,7 +31,7 @@ public class CarritoFragment extends Fragment {
     ArrayList<Compra> listPedidos;
     TextView textCarrito, totalPedido;
     Button bt_confirmar , btn_cancelar;
-
+    double suma= 0;
 
     DecimalFormat df = new DecimalFormat("#.##");
 
@@ -57,7 +58,18 @@ public class CarritoFragment extends Fragment {
         }else {
             textCarrito.setText("Lista de productos");
             mostrarListaProd();
-            totalPedido.setText(df.format(sumaTotal)+"");
+           Iterator<Compra> it= compras.iterator();
+
+           double total = 0;
+
+           while(it.hasNext()){
+               Compra item=it.next();
+               double precio = item.getPrecioProducto();
+               int cant= item.getCantidadProducto();
+               double subtotal= precioTotal(cant,precio);
+               total= precioFinal(subtotal);
+           }
+            totalPedido.setText(df.format(total)+"");
             bt_confirmar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -66,6 +78,17 @@ public class CarritoFragment extends Fragment {
             });
         }
         return vista;
+    }
+
+    public double precioTotal(int cantidadProducto, double precioProducto){
+        return cantidadProducto*precioProducto;
+    }
+
+    public double precioFinal(double precioTotal){
+        suma = suma +precioTotal;
+        return suma;
+        //sumaTotal = suma;
+        //Log.d("TotalSuma", sumaTotal+"");
     }
 
     private void mostrarListaProd() {
