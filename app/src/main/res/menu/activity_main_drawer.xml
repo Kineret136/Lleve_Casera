@@ -26,13 +26,5 @@
             android:icon="@drawable/ic_agencia"
             android:title="@string/menu_agencias" />
 
-        <item
-            android:id="@+id/configuration_section"
-            android:title="@string/menu_settings">
-        </item>
-
-
-
-
     </group>
 </menu>

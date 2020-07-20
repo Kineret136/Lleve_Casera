@@ -17,7 +17,7 @@ import androidx.cardview.widget.CardView;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.anys.lleve_casera_dv.Bean.Carrito;
+
 import com.anys.lleve_casera_dv.CarritoFragment;
 import com.anys.lleve_casera_dv.R;
 import com.anys.lleve_casera_dv.model.Compra;

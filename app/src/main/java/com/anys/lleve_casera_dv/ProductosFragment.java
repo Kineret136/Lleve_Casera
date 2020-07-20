@@ -18,7 +18,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.anys.lleve_casera_dv.Adaptadores.AdaptadorProductos;
-import com.anys.lleve_casera_dv.Bean.Productos;
 import com.anys.lleve_casera_dv.io.productoApiAdapter;
 import com.anys.lleve_casera_dv.io.response.ProductosResponse;
 import com.anys.lleve_casera_dv.model.Producto;
