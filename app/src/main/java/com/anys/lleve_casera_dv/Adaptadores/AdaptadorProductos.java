@@ -143,8 +143,8 @@ public class AdaptadorProductos extends RecyclerView.Adapter<AdaptadorProductos.
         holder.distritomercado.setText(productos.get(position).getDistritoMercado());
         Picasso.get()
                 .load(url)
-                .placeholder(R.drawable.ic_mercado)
-                .error(R.drawable.ic_mercado)
+                .placeholder(R.drawable.ic_productos_default)
+                .error(R.drawable.ic_productos_default)
                 .into(holder.imagenView);
     }
 

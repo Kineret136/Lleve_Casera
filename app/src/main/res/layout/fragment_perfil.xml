@@ -116,17 +116,6 @@
             android:text="@string/act_boton"
             android:textColor="@color/white" />
 
-        <Button
-            android:id="@+id/btn_back_a"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="70dp"
-            android:layout_marginRight="70dp"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/border_image"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:text="@string/back"
-            android:textColor="@color/colorPrimary" />
     </LinearLayout>
 
 </FrameLayout>

@@ -40,6 +40,9 @@ public class CarritoFragment extends Fragment {
         super.onCreate(savedInstanceState);
         TextView toolbar = getActivity().findViewById(R.id.toolbar_title);
         toolbar.setText("Carrito de Compra");
+        //Ver la conexion
+        Conexion.conexInter(getContext());
+
     }
 
     @Override
@@ -56,6 +59,7 @@ public class CarritoFragment extends Fragment {
        if (compras.isEmpty()){
             textCarrito.setText("¡Aun no ha agregado ningun producto al carrito!");
         }else {
+
             textCarrito.setText("Lista de productos");
             mostrarListaProd();
            Iterator<Compra> it= compras.iterator();
