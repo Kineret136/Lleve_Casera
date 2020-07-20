@@ -7,7 +7,6 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +20,6 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import static com.anys.lleve_casera_dv.Adaptadores.AdaptadorCarrito.sumaTotal;
 import static com.anys.lleve_casera_dv.CantProductoFragment2.compras;
 
 public class CarritoFragment extends Fragment {
@@ -48,7 +46,7 @@ public class CarritoFragment extends Fragment {
         // Inflate the layout for this fragment
         View vista = inflater.inflate(R.layout.fragment_carrito, container, false);
         recyclerViewCarrito = vista.findViewById(R.id.recyclerCarrito);
-        //listPedidos = new ArrayList<>();
+                            //listPedidos = new ArrayList<>();
         textCarrito= vista.findViewById(R.id.textCarrito);
         totalPedido = vista.findViewById(R.id.totalPedido);
         bt_confirmar = vista.findViewById(R.id.btn_comprar);
@@ -73,6 +71,7 @@ public class CarritoFragment extends Fragment {
             bt_confirmar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                     Navigation.findNavController(v).navigate(R.id.agenciaSelectFragment);
                 }
             });
@@ -87,16 +86,12 @@ public class CarritoFragment extends Fragment {
     public double precioFinal(double precioTotal){
         suma = suma +precioTotal;
         return suma;
-        //sumaTotal = suma;
-        //Log.d("TotalSuma", sumaTotal+"");
     }
 
     private void mostrarListaProd() {
         recyclerViewCarrito.setLayoutManager(new LinearLayoutManager(getContext()));
         adaptadorCarrito = new AdaptadorCarrito(getContext(),compras);
         recyclerViewCarrito.setAdapter(adaptadorCarrito);
-        Log.d("TotalSumaTotal", sumaTotal+"");
-        //totalPedido.setText(df.format(traerPrecio())+"");
     }
 
     @Override

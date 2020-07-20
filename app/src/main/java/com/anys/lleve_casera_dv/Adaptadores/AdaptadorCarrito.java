@@ -36,8 +36,6 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.View
     Context context;
     LayoutInflater inflater;
     ArrayList<Compra> pedidos, listaTotPedido;
-    public static double sumaTotal;
-    double suma = 0;
     private View.OnClickListener listener;
     public AdaptadorCarrito(Context context, ArrayList<Compra> pedidos) {
         this.inflater = LayoutInflater.from(context);
@@ -134,11 +132,6 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.View
         return cantidadProducto*precioProducto;
     }
 
-    public void precioFinal(double precioTotal){
-        suma = suma +precioTotal;
-        sumaTotal = suma;
-        Log.d("TotalSuma", sumaTotal+"");
-    }
 
     @Override
     public void onBindViewHolder(@NonNull AdaptadorCarrito.ViewHolder holder, final int position) {
@@ -146,7 +139,6 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.View
         double precio= pedidos.get(position).getPrecioProducto();
         DecimalFormat df = new DecimalFormat("#.##");
         double precioTotal= precioTotal(cantidad,precio);
-        precioFinal(precioTotal);
 
         String nomImg = pedidos.get(position).getNombrePrducto();
         String url = "https://smipmec.000webhostapp.com/Proyecto/LleveCasera/recursos/img/producto/"+nomImg+".jpg";
