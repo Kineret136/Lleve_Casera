@@ -54,17 +54,19 @@ public class CantProductoFragment2 extends DialogFragment {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         cantidad[0] =cant.getText().toString();
-                        cantida[0] =Integer.parseInt(cant.getText().toString());
-
-                        compras.add(new Compra(idProducto,nombreProducto,cantida[0],preProducto));
-
-
-                        Iterator<Compra> nombreIterator = compras.iterator();
-                        while(nombreIterator.hasNext()){
-                            Compra elemento = nombreIterator.next();
-                            Log.d("PedidoAgregado", elemento.toString()+" / " );
+                        if(!cantidad[0].equalsIgnoreCase("")){
+                            cantida[0] =Integer.parseInt(cant.getText().toString());
+                            compras.add(new Compra(idProducto,nombreProducto,cantida[0],preProducto));
+                            Iterator<Compra> nombreIterator = compras.iterator();
+                            while(nombreIterator.hasNext()){
+                                Compra elemento = nombreIterator.next();
+                                Log.d("PedidoAgregado", elemento.toString()+" / " );
+                            }
+                            Toast.makeText(getActivity(), "Se agregó "+ cantidad[0] + " unidades de " +nombreProducto, Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(getActivity(), "Ingrese la cantidad que desea comprar " , Toast.LENGTH_SHORT).show();
                         }
-                        Toast.makeText(getActivity(), "Se agregó "+ cantidad[0] + " unidades de " +nombreProducto, Toast.LENGTH_SHORT).show();
+
                     }
                 })
                 . setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
