@@ -58,8 +58,12 @@ public class ElementosMercadoFragment extends Fragment{
         recyclerViewElemMerc = vista.findViewById(R.id.recyclerElementosMercado);
         listElemMerc = new ArrayList<>();
 
-        //Cargamos los elementos
-        cargarListaElementosMercado();
+        if (Conexion.conexInter(getContext())==true){
+            //Cargamos los elementos
+            cargarListaElementosMercado();
+
+        }
+
         return vista;
     }
 

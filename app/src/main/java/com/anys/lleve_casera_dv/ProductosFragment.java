@@ -18,7 +18,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.anys.lleve_casera_dv.Adaptadores.AdaptadorProductos;
-import com.anys.lleve_casera_dv.Bean.Productos;
 import com.anys.lleve_casera_dv.io.productoApiAdapter;
 import com.anys.lleve_casera_dv.io.response.ProductosResponse;
 import com.anys.lleve_casera_dv.model.Producto;
@@ -50,9 +49,11 @@ public class ProductosFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_productos, container, false);
         recyclerViewProductos = view.findViewById(R.id.recyclerview_producto);
-        //Cargar la List
-        cargarListaProductos();
 
+        if (Conexion.conexInter(getContext())==true){
+            //Cargar la List
+            cargarListaProductos();
+        }
         return view;
     }
 
@@ -61,8 +62,6 @@ public class ProductosFragment extends Fragment {
         call.enqueue(new productosCallback());
 
     }
-
-
 
         class productosCallback implements Callback<ProductosResponse>{
 

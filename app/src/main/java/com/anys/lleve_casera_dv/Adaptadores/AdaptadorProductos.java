@@ -14,7 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.anys.lleve_casera_dv.Bean.Productos;
 import com.anys.lleve_casera_dv.R;
 import com.anys.lleve_casera_dv.model.Producto;
 import com.squareup.picasso.Picasso;
@@ -143,8 +142,8 @@ public class AdaptadorProductos extends RecyclerView.Adapter<AdaptadorProductos.
         holder.distritomercado.setText(productos.get(position).getDistritoMercado());
         Picasso.get()
                 .load(url)
-                .placeholder(R.drawable.ic_mercado)
-                .error(R.drawable.ic_mercado)
+                .placeholder(R.drawable.ic_productos_default)
+                .error(R.drawable.ic_productos_default)
                 .into(holder.imagenView);
     }
 

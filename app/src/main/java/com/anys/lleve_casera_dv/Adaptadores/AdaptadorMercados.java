@@ -15,7 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.anys.lleve_casera_dv.Bean.Mercados;
+
 import com.anys.lleve_casera_dv.R;
 import com.anys.lleve_casera_dv.model.Mercado;
 import com.squareup.picasso.Picasso;

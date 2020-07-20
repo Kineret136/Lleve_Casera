@@ -50,9 +50,11 @@ public class MercadoFragment extends Fragment {
         View viewVista = inflater.inflate(R.layout.fragment_mercado, container, false);
         recyclerViewMercados = viewVista.findViewById(R.id.recyclerMercado);
 
+        if (Conexion.conexInter(getContext())==true){
+            //Cargar Lista
+            cargarListaMercados();
+        }
 
-        //Cargar Lista
-        cargarListaMercados();
 
         return viewVista;
     }
@@ -80,8 +82,6 @@ public class MercadoFragment extends Fragment {
 
         @Override
         public void onFailure(Call<MercadosResponse> call, Throwable t) {
-
-
 
         }
     }

@@ -26,19 +26,5 @@
             android:icon="@drawable/ic_agencia"
             android:title="@string/menu_agencias" />
 
-        <item
-            android:id="@+id/configuration_section"
-            android:title="@string/menu_settings">
-            <menu>
-                <item
-                    android:id="@+id/fragmentLogOut"
-                    android:icon="@android:drawable/ic_lock_power_off"
-                    android:title="@string/menu_logout" />
-            </menu>
-        </item>
-
-
-
-
     </group>
 </menu>

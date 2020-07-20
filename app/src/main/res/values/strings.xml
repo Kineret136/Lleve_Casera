@@ -75,5 +75,8 @@
     <string name="imgmercado">imgMercado</string>
     <string name="nombre_de_mercado">Nombre de Mercado</string>
 
+    <!--String Error Fragment-->
+    <string name="tit_mesaje_error_con">Ha ocurrido un error</string>
+    <string name="mensaje_error_con">No se ha encontrado una conexión a Internet \n Intentalo de nuevo más tarde</string>
 
 </resources>
