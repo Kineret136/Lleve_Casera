@@ -135,6 +135,9 @@ public class AgenciaSelectFragment extends Fragment {
                 pedidos.setCodigoAgencia(4);
                 pedidos.setCodigoUsuario(codigoUsuario);
                 pedidos.setFechaCompra(fechaCompra);
+                pedidos.setPrecioTotal(precioTotal);
+                Call<ComprasResponse> call = compraApiAdapter.getApiService().registrarPedido(pedidos);
+                call.enqueue(new pedidoCallBack());
                 try {
                     pedidos.setPrecioTotal(precioTotal);
                     cerrarProceso(view, pedidos);
@@ -207,6 +210,8 @@ public class AgenciaSelectFragment extends Fragment {
             Call<DetalleCompraResponse> call = compraApiAdapter.getApiService().registrarDetallePedido(detallePedido);
             call.enqueue(new detalleCallBack());
         }
+
+
     }
 
     class detalleCallBack implements Callback<DetalleCompraResponse>{
@@ -222,11 +227,6 @@ public class AgenciaSelectFragment extends Fragment {
                     if(estadoCompra==compras.size()){
                         cuadro();
                     }
-                    /*msj = detalleCompraResponse.getMensaje();
-                    msj = "Se ha realizado el pedido con éxito. En breve se comunicará el personal de la agencia para enviar su pedido.";
-                    Toast.makeText(getContext(),msj,Toast.LENGTH_LONG).show();
-                    compras.clear();*/
-
                 }else {
                     msj=detalleCompraResponse.getMensaje();
                     Toast.makeText(getContext(),msj,Toast.LENGTH_SHORT).show();
