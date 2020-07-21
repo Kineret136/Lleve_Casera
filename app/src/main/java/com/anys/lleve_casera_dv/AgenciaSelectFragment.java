@@ -1,5 +1,9 @@
 package com.anys.lleve_casera_dv;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.cardview.widget.CardView;
@@ -8,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +39,7 @@ import static com.anys.lleve_casera_dv.CantProductoFragment2.compras;
 public class AgenciaSelectFragment extends Fragment {
 
     CardView cv_ubereats,cv_glovo,cv_rappi,cv_envioDomicilio;
+    Button bt_recojo;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,9 +57,31 @@ public class AgenciaSelectFragment extends Fragment {
         cv_rappi= vista.findViewById(R.id.cv_rappi);
         cv_envioDomicilio= vista.findViewById(R.id.cv_envioDomicilio);
 
+        bt_recojo = vista.findViewById(R.id.btn_recojoPresencial);
+        bt_recojo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Dialog dialog = new Dialog(getContext());
+                dialog.setContentView(R.layout.fragment_recojo);
+                dialog.setCanceledOnTouchOutside(false);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.getWindow().getAttributes().windowAnimations = android.R.style.Animation_Dialog;
+                //función al botón
+                Button boton_finish = dialog.findViewById(R.id.btn_cerrarDialog);
+                boton_finish.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        dialog.cancel();
+                        compras.clear();
+                    }
+                });
+                //mostrar el fragment
+                dialog.show();
+            }
+        });
+
         final String codigoUsuario= Preferences.obtenerPreferencesString(getActivity(),Preferences.PREFERENCES_codigoUsuario);
         final Pedidos pedidos = new Pedidos();
-        final DetallePedido detallePedido = new DetallePedido();
         //final Date fechaCompra;
         final Calendar c = Calendar.getInstance();
         final SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -81,6 +109,8 @@ public class AgenciaSelectFragment extends Fragment {
                 pedidos.setCodigoUsuario(codigoUsuario);
                 pedidos.setFechaCompra(fechaCompra);
                 pedidos.setPrecioTotal(precioTotal);
+                Call<ComprasResponse> call = compraApiAdapter.getApiService().registrarPedido(pedidos);
+                call.enqueue(new pedidoCallBack());
             }
         });
         cv_rappi.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +120,8 @@ public class AgenciaSelectFragment extends Fragment {
                 pedidos.setCodigoUsuario(codigoUsuario);
                 pedidos.setFechaCompra(fechaCompra);
                 pedidos.setPrecioTotal(precioTotal);
+                Call<ComprasResponse> call = compraApiAdapter.getApiService().registrarPedido(pedidos);
+                call.enqueue(new pedidoCallBack());
             }
         });
         cv_envioDomicilio.setOnClickListener(new View.OnClickListener() {
@@ -98,7 +130,14 @@ public class AgenciaSelectFragment extends Fragment {
                 pedidos.setCodigoAgencia(4);
                 pedidos.setCodigoUsuario(codigoUsuario);
                 pedidos.setFechaCompra(fechaCompra);
-                pedidos.setPrecioTotal(precioTotal);
+                try {
+                    pedidos.setPrecioTotal(precioTotal);
+                    Call<ComprasResponse> call = compraApiAdapter.getApiService().registrarPedido(pedidos);
+                    call.enqueue(new pedidoCallBack());
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
         // Inflate the layout for this fragment
@@ -178,9 +217,11 @@ public class AgenciaSelectFragment extends Fragment {
                 DetalleCompraResponse detalleCompraResponse = response.body();
                 assert detalleCompraResponse != null;
                 if (detalleCompraResponse.getEstado()==1){
-                    msj = detalleCompraResponse.getMensaje();
-                    Toast.makeText(getContext(),msj,Toast.LENGTH_SHORT).show();
-                    compras.clear();
+                    /*msj = detalleCompraResponse.getMensaje();
+                    msj = "Se ha realizado el pedido con éxito. En breve se comunicará el personal de la agencia para enviar su pedido.";
+                    Toast.makeText(getContext(),msj,Toast.LENGTH_LONG).show();
+                    compras.clear();*/
+                    cuadro();
                 }else {
                     msj=detalleCompraResponse.getMensaje();
                     Toast.makeText(getContext(),msj,Toast.LENGTH_SHORT).show();
@@ -197,5 +238,23 @@ public class AgenciaSelectFragment extends Fragment {
         }
     }
 
+    public void cuadro(){
+        final Dialog dialog = new Dialog(getContext());
+        dialog.setContentView(R.layout.fragment_compra_realizada);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.getWindow().getAttributes().windowAnimations = android.R.style.Animation_Dialog;
+        //función al botón
+        Button boton_closeD = dialog.findViewById(R.id.btn_closeDialog);
+        boton_closeD.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+                compras.clear();
+            }
+        });
+        //mostrar el fragment
+        dialog.show();
+    }
 
 }

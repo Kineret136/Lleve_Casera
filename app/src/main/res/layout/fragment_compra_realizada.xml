@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="sans-serif-black"
+        android:layout_marginTop="20dp"
+        android:text="@string/tit_crealizada"
+        android:textAlignment="center"
+        android:textColor="#F8E0E0"
+        android:textSize="18dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mensaje_crealiada"
+        android:textAlignment="center"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="#DCCBCB"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        />
+    <Button
+        android:id="@+id/btn_closeDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Listo"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:textColor="#973636"
+        android:background="@drawable/regtangle_imge"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:layout_gravity="center"
+        android:layout_marginVertical="10dp"
+        />
+
+</LinearLayout>
