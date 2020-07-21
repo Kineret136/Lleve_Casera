@@ -130,14 +130,9 @@ public class AgenciaSelectFragment extends Fragment {
                 pedidos.setCodigoAgencia(4);
                 pedidos.setCodigoUsuario(codigoUsuario);
                 pedidos.setFechaCompra(fechaCompra);
-                try {
-                    pedidos.setPrecioTotal(precioTotal);
-                    Call<ComprasResponse> call = compraApiAdapter.getApiService().registrarPedido(pedidos);
-                    call.enqueue(new pedidoCallBack());
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                pedidos.setPrecioTotal(precioTotal);
+                Call<ComprasResponse> call = compraApiAdapter.getApiService().registrarPedido(pedidos);
+                call.enqueue(new pedidoCallBack());
             }
         });
         // Inflate the layout for this fragment
@@ -189,7 +184,6 @@ public class AgenciaSelectFragment extends Fragment {
     }
 
 
-
     public void registraDetalle(int codigoCompra){
         final DetallePedido detallePedido = new DetallePedido();
         Iterator<Compra> iterator = compras.iterator();
@@ -206,7 +200,6 @@ public class AgenciaSelectFragment extends Fragment {
             call.enqueue(new detalleCallBack());
         }
 
-
     }
 
     class detalleCallBack implements Callback<DetalleCompraResponse>{
@@ -217,15 +210,11 @@ public class AgenciaSelectFragment extends Fragment {
                 DetalleCompraResponse detalleCompraResponse = response.body();
                 assert detalleCompraResponse != null;
                 if (detalleCompraResponse.getEstado()==1){
-                    /*msj = detalleCompraResponse.getMensaje();
-                    msj = "Se ha realizado el pedido con éxito. En breve se comunicará el personal de la agencia para enviar su pedido.";
-                    Toast.makeText(getContext(),msj,Toast.LENGTH_LONG).show();
-                    compras.clear();*/
+
                     cuadro();
                 }else {
                     msj=detalleCompraResponse.getMensaje();
                     Toast.makeText(getContext(),msj,Toast.LENGTH_SHORT).show();
-
                 }
             }else {
                 Toast.makeText(getContext(),"Error en el formato de respuesta",Toast.LENGTH_SHORT).show();
