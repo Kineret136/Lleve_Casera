@@ -14,7 +14,7 @@ public class Pedidos {
     @SerializedName("precioTotal")
     private double precioTotal;
     @SerializedName("fechaCompra")
-    private Date fechaCompra;
+    private String fechaCompra;
 
     public String getCodigoUsuario() {
         return codigoUsuario;
@@ -40,11 +40,11 @@ public class Pedidos {
         this.precioTotal = precioTotal;
     }
 
-    public Date getFechaCompra() {
+    public String getFechaCompra() {
         return fechaCompra;
     }
 
-    public void setFechaCompra(Date fechaCompra) {
+    public void setFechaCompra(String fechaCompra) {
         this.fechaCompra = fechaCompra;
     }
 }

@@ -70,13 +70,21 @@ public class CarritoFragment extends Fragment {
                int cant= item.getCantidadProducto();
                double subtotal= precioTotal(cant,precio);
                total= precioFinal(subtotal);
+
+
            }
             totalPedido.setText(df.format(total)+"");
-            bt_confirmar.setOnClickListener(new View.OnClickListener() {
+           final double finalTotal = total;
+
+
+           bt_confirmar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    //Obtener el total de la compra para insertar en el endpoint CompraUsuario
+                    Bundle tot = new Bundle();
+                    tot.putDouble("precioTotal", finalTotal);
+                    Navigation.findNavController(v).navigate(R.id.agenciaSelectFragment,tot);
 
-                    Navigation.findNavController(v).navigate(R.id.agenciaSelectFragment);
                 }
             });
         }
