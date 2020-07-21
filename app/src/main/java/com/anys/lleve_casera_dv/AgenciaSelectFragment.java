@@ -8,7 +8,9 @@ import android.os.Bundle;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +42,8 @@ public class AgenciaSelectFragment extends Fragment {
 
     CardView cv_ubereats,cv_glovo,cv_rappi,cv_envioDomicilio;
     Button bt_recojo;
+    int estadoCompra= 1;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -90,6 +94,8 @@ public class AgenciaSelectFragment extends Fragment {
         //llamar al precio total de la compra
         final double precioTotal = getArguments().getDouble("precioTotal");
 
+
+
         cv_ubereats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,8 +104,9 @@ public class AgenciaSelectFragment extends Fragment {
                 pedidos.setFechaCompra(fechaCompra);
                 pedidos.setPrecioTotal(precioTotal);
 
-                Call<ComprasResponse> call = compraApiAdapter.getApiService().registrarPedido(pedidos);
-                call.enqueue(new pedidoCallBack());
+                cerrarProceso(view, pedidos);
+
+
             }
         });
         cv_glovo.setOnClickListener(new View.OnClickListener() {
@@ -109,8 +116,7 @@ public class AgenciaSelectFragment extends Fragment {
                 pedidos.setCodigoUsuario(codigoUsuario);
                 pedidos.setFechaCompra(fechaCompra);
                 pedidos.setPrecioTotal(precioTotal);
-                Call<ComprasResponse> call = compraApiAdapter.getApiService().registrarPedido(pedidos);
-                call.enqueue(new pedidoCallBack());
+                cerrarProceso(view, pedidos);
             }
         });
         cv_rappi.setOnClickListener(new View.OnClickListener() {
@@ -120,8 +126,7 @@ public class AgenciaSelectFragment extends Fragment {
                 pedidos.setCodigoUsuario(codigoUsuario);
                 pedidos.setFechaCompra(fechaCompra);
                 pedidos.setPrecioTotal(precioTotal);
-                Call<ComprasResponse> call = compraApiAdapter.getApiService().registrarPedido(pedidos);
-                call.enqueue(new pedidoCallBack());
+                cerrarProceso(view, pedidos);
             }
         });
         cv_envioDomicilio.setOnClickListener(new View.OnClickListener() {
@@ -132,8 +137,7 @@ public class AgenciaSelectFragment extends Fragment {
                 pedidos.setFechaCompra(fechaCompra);
                 try {
                     pedidos.setPrecioTotal(precioTotal);
-                    Call<ComprasResponse> call = compraApiAdapter.getApiService().registrarPedido(pedidos);
-                    call.enqueue(new pedidoCallBack());
+                    cerrarProceso(view, pedidos);
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -188,8 +192,6 @@ public class AgenciaSelectFragment extends Fragment {
         return val_user[0] ;
     }
 
-
-
     public void registraDetalle(int codigoCompra){
         final DetallePedido detallePedido = new DetallePedido();
         Iterator<Compra> iterator = compras.iterator();
@@ -205,23 +207,26 @@ public class AgenciaSelectFragment extends Fragment {
             Call<DetalleCompraResponse> call = compraApiAdapter.getApiService().registrarDetallePedido(detallePedido);
             call.enqueue(new detalleCallBack());
         }
-
-
     }
 
     class detalleCallBack implements Callback<DetalleCompraResponse>{
         String msj;
+
         @Override
         public void onResponse(Call<DetalleCompraResponse> call, Response<DetalleCompraResponse> response) {
             if(response.isSuccessful()){
                 DetalleCompraResponse detalleCompraResponse = response.body();
                 assert detalleCompraResponse != null;
                 if (detalleCompraResponse.getEstado()==1){
+                    estadoCompra=+estadoCompra;
+                    if(estadoCompra==compras.size()){
+                        cuadro();
+                    }
                     /*msj = detalleCompraResponse.getMensaje();
                     msj = "Se ha realizado el pedido con éxito. En breve se comunicará el personal de la agencia para enviar su pedido.";
                     Toast.makeText(getContext(),msj,Toast.LENGTH_LONG).show();
                     compras.clear();*/
-                    cuadro();
+
                 }else {
                     msj=detalleCompraResponse.getMensaje();
                     Toast.makeText(getContext(),msj,Toast.LENGTH_SHORT).show();
@@ -256,5 +261,15 @@ public class AgenciaSelectFragment extends Fragment {
         //mostrar el fragment
         dialog.show();
     }
+
+    public void cerrarProceso(View v, Pedidos pedidos){
+        Call<ComprasResponse> call = compraApiAdapter.getApiService().registrarPedido(pedidos);
+        call.enqueue(new pedidoCallBack());
+        getFragmentManager().beginTransaction().remove(this).commit();
+        //compras.clear();
+
+        Navigation.findNavController(v).navigate(R.id.carritoFragment);
+    }
+
 
 }
