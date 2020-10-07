@@ -1,7 +1,6 @@
 package com.anys.lleve_casera_dv;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -10,7 +9,7 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -266,7 +265,7 @@ public class AgenciaSelectFragment extends Fragment {
         Call<ComprasResponse> call = compraApiAdapter.getApiService().registrarPedido(pedidos);
         call.enqueue(new pedidoCallBack());
         getFragmentManager().beginTransaction().remove(this).commit();
-        //compras.clear();
+        compras.clear();
 
         Navigation.findNavController(v).navigate(R.id.carritoFragment);
     }
