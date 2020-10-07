@@ -1,6 +1,5 @@
 package com.anys.lleve_casera_dv;
 
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -8,14 +7,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.anys.lleve_casera_dv.Adaptadores.AdaptadorMercados;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -48,7 +45,7 @@ public class PrincipalActivity extends AppCompatActivity {
          Aquí colocamos los id de los fragment a los que queremos que muestre el nav del menú
          */
         mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.perfilFragment,R.id.productosFragment,
-                R.id.mercadoFragment,R.id.agenciaFragment,R.id.carritoFragment,R.id.productoMercadoFragment,
+                R.id.mercadoFragment,R.id.agenciaFragment,R.id.carritoFragment,R.id.agenciaSelectFragment,
                 R.id.elementos_mercadoFragment,R.id.confirmar_compraFragment)
                 .setDrawerLayout(drawer)
                 .build();
@@ -59,7 +56,7 @@ public class PrincipalActivity extends AppCompatActivity {
         navigationView.setItemIconTintList(null); //Para que no se vea el fondo gris de los iconos del menú al ejecutar la app
     }
 
-   //Menu opciones lado derecho en el nav_Bar
+    //Menu opciones lado derecho en el nav_Bar
   @Override
    public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -104,4 +101,5 @@ public class PrincipalActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

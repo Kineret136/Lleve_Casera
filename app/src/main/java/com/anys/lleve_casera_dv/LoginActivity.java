@@ -145,7 +145,7 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         public void onFailure(Call<UsuarioResponse> call, Throwable t) {
-            Toast.makeText(getApplicationContext(), t.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"No se pude conectar al servidor \n"+ t.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
         }
     }
 

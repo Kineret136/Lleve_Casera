@@ -133,7 +133,7 @@ public class PerfilFragment extends Fragment {
 
         @Override
         public void onFailure(Call<UsuarioResponse> call, Throwable t) {
-
+            Toast.makeText(getContext(),"Se produjo un error. Inténtelo más tarde \n"+ t.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
         }
     }
 

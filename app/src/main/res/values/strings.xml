@@ -75,5 +75,16 @@
     <string name="imgmercado">imgMercado</string>
     <string name="nombre_de_mercado">Nombre de Mercado</string>
 
+    <!--String Error Fragment-->
+    <string name="tit_mesaje_error_con">Ha ocurrido un error</string>
+    <string name="mensaje_error_con">No se ha encontrado una conexión a Internet \n Intentalo de nuevo más tarde</string>
+
+    <!--String REcojo Fragment-->
+    <string name="tit_recojo">¡Compra Separada!</string>
+    <string name="mensaje_recojo">Se ha generado un ticket de compra \n En breve se comunicará el personal \n
+                                    del mercado con usted para más información</string>
+    <!--String Compra Realizada Fragment-->
+    <string name="tit_crealizada">¡Compra exitosa!</string>
+    <string name="mensaje_crealiada">En breve se comunicará el personal de la agencia para \n más información</string>
 
 </resources>
